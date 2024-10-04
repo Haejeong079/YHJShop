@@ -1,2 +1,4 @@
-package inhatc.cse.yhjshope.item.controller;public class ItemController02 {
+package inhatc.cse.yhjshope.item.controller;
+
+public class ItemController02 {
 }

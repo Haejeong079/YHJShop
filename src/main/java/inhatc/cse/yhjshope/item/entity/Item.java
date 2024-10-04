@@ -1,4 +1,4 @@
-package inhatc.cse.yhjshope.item.constant.entity;
+package inhatc.cse.yhjshope.item.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
