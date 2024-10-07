@@ -17,5 +17,5 @@ public class ItemDto {
     private int price;  //가격
     private int stockNumber;    //재고수량
     private String itemDetail;  //상품 상세 설명
-
+    private String itemSellStatus;
 }

@@ -1,10 +1,13 @@
 package inhatc.cse.yhjshope.item.entity;
 
+import inhatc.cse.yhjshope.item.constant.ItemSellStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -30,5 +33,11 @@ public class Item {
     @Column(nullable = false)
     private String itemDetail;
 
+    @Enumerated(EnumType.STRING)
+    private ItemSellStatus itemSellStatus;
+
+
+    private LocalDateTime regTime;      // 등록일 (추후 제거)
+    private LocalDateTime updateTime;   // 수정일 (추후 제거)
 
 }

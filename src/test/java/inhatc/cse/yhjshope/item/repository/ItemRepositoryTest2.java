@@ -1,17 +1,22 @@
 package inhatc.cse.yhjshope.item.repository;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import inhatc.cse.yhjshope.item.constant.ItemSellStauts;
+import inhatc.cse.yhjshope.item.constant.ItemSellStatus;
 import inhatc.cse.yhjshope.item.entity.Item;
 import inhatc.cse.yhjshope.item.entity.QItem;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.junit.jupiter.api.BeforeEach;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootTest
@@ -19,6 +24,8 @@ public class ItemRepositoryTest2 {
     @Autowired
     private ItemRepository itemRepository;
 
+//    @Autowired
+//    private JPAQueryFactory jpaQueryFactory;
 
     @PersistenceContext
     private EntityManager em;
@@ -77,6 +84,7 @@ public class ItemRepositoryTest2 {
             System.out.println(item);
         });
 
+
     }
 
     @Test
@@ -108,6 +116,33 @@ public class ItemRepositoryTest2 {
 //            System.out.println(item);
 //        }
 
+    }
+
+    // 데이터 준비
+    public void createItemList2(){
+        for(int i=1;i<=5;i++){
+            Item item = new Item();
+            item.setItemNm("테스트 상품" + i);
+            item.setPrice(10000 + i);
+            item.setItemDetail("테스트 상품 상세 설명" + i);
+            item.setItemSellStatus(ItemSellStatus.SELL);
+            item.setStockNumber(100);
+            item.setRegTime(LocalDateTime.now());
+            item.setUpdateTime(LocalDateTime.now());
+            itemRepository.save(item);
+        }
+
+        for(int i=6;i<=10;i++){
+            Item item = new Item();
+            item.setItemNm("테스트 상품" + i);
+            item.setPrice(10000 + i);
+            item.setItemDetail("테스트 상품 상세 설명" + i);
+            item.setItemSellStatus(ItemSellStatus.SOLD_OUT);
+            item.setStockNumber(0);
+            item.setRegTime(LocalDateTime.now());
+            item.setUpdateTime(LocalDateTime.now());
+            itemRepository.save(item);
+        }
     }
 
 }
