@@ -1,6 +1,13 @@
 package inhatc.cse.yhjshope.item.repository;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import inhatc.cse.yhjshope.item.constant.ItemSellStauts;
 import inhatc.cse.yhjshope.item.entity.Item;
+import inhatc.cse.yhjshope.item.entity.QItem;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,4 +36,5 @@ public class ItemRepositoryTest {
         itemList.forEach(System.out::println);
 
     }
+
 }
