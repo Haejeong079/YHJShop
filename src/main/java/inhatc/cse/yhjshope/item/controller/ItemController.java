@@ -47,7 +47,7 @@ public class ItemController {
 
         }
         model.addAttribute("itemDtoList", itemDtoList);
-        return "item/thymeleaf3";
+        return "item/thymeleafEx03";
     }
     @GetMapping("/item/thymeleaf4")
     public String thymeleaf4(Model model){
@@ -63,6 +63,6 @@ public class ItemController {
 
         }
         model.addAttribute("itemDtoList", itemDtoList);
-        return "item/thymeleaf4";
+        return "item/thymeleafEx04";
     }
 }

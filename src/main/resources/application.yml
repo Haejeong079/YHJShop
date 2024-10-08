@@ -4,42 +4,42 @@ server:
 spring:
   application:
     name: YHJShope
-
   devtools:
     livereload:
-      enabled: true #화면 갱신
+      enabled: true # 화면 갱신
     restart:
-      enabled: true #다시 기동
-
+      enabled: true # 재시작
   thymeleaf:
-    cache: false #캐쉬 안함
+    cache: false # 캐시 없음
 
-  #MYSQL 설정
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/spring_b
+    url: jdbc:mysql://localhost:3306/Spring_B
     username: root
     password: 1234
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
       naming:
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
-    show-sql: true  # ????? ???? ??
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.MySQLDialect
 
-#  security:
-#    user:
-#      name: test
-#      password: 1234
+  security:
+    user:
+      name: test
+      password: 1234
+
+
 logging:
   level:
     org:
       hibernate:
         type:
-          descriptor:
+          description:
             sql: trace
