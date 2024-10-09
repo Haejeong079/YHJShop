@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: YHJShope
+    name: YHJShop
   devtools:
     livereload:
       enabled: true # 화면 갱신
@@ -29,12 +29,10 @@ spring:
       hibernate:
         format_sql: true
     database-platform: org.hibernate.dialect.MySQLDialect
-
   security:
     user:
       name: test
       password: 1234
-
 
 logging:
   level:
