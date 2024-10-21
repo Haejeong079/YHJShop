@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: YHJShop
+    name: YHJShope
   devtools:
     livereload:
       enabled: true # 화면 갱신
