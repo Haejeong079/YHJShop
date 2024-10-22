@@ -4,10 +4,12 @@ import inhatc.cse.yhjshope.member.entity.Member;
 import inhatc.cse.yhjshope.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class MemberService {
 
@@ -22,16 +24,13 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
-//        Optional<Member> mem = memberRepository.findByEmail(member.getEmail());
-//        if(!mem.isPresent()){
-//            Member m = mem.get();
-//            System.out.println(m);
-//            throw new IllegalStateException("이미 가입된 회원입니다.");
-//        }
 
-        Member m2 = memberRepository.findByEmail(member.getEmail())
-                .orElseThrow(()-> new IllegalStateException("이미 가입된 회원입니다."));
-        System.out.println(m2);
+
+        Optional<Member> optMember = memberRepository.findByEmail(member.getEmail());
+        if(optMember.isPresent()){
+            Member member1 = optMember.get();
+            throw new IllegalStateException("이미 가입된 회원입니다.");
+        }
     }
 
 }
