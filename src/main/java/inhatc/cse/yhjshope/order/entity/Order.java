@@ -1,5 +1,6 @@
 package inhatc.cse.yhjshope.order.entity;
 
+import inhatc.cse.yhjshope.common.entity.BaseEntity;
 import inhatc.cse.yhjshope.member.entity.Member;
 import inhatc.cse.yhjshope.order.constant.OrderStatus;
 import jakarta.persistence.*;
@@ -18,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Order {
+public class Order extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

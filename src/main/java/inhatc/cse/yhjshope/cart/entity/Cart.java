@@ -1,5 +1,6 @@
 package inhatc.cse.yhjshope.cart.entity;
 
+import inhatc.cse.yhjshope.common.entity.BaseEntity;
 import inhatc.cse.yhjshope.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,7 +14,7 @@ import org.hibernate.annotations.Fetch;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Cart {
+public class Cart extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

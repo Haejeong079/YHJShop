@@ -1,5 +1,6 @@
 package inhatc.cse.yhjshope.item.entity;
 
+import inhatc.cse.yhjshope.common.entity.BaseEntity;
 import inhatc.cse.yhjshope.item.constant.ItemSellStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment

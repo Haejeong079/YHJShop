@@ -1,6 +1,7 @@
 package inhatc.cse.yhjshope.member.entity;
 
 
+import inhatc.cse.yhjshope.common.entity.BaseEntity;
 import inhatc.cse.yhjshope.member.constant.Role;
 import inhatc.cse.yhjshope.member.dto.MemberDto;
 import jakarta.persistence.*;
@@ -15,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
