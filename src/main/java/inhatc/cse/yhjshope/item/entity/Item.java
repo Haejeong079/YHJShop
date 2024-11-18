@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @Builder
 public class Item extends BaseEntity {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment
     @Column(name = "item_id")
