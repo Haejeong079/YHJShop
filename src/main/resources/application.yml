@@ -21,7 +21,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
     show-sql: true
@@ -33,6 +33,13 @@ spring:
     user:
       name: test
       password: 1234
+    servlet:
+      multipart:
+        max-file-size: 20MB
+        max-request-size: 100MB
+
+itemImgLocation: /Users/yanghyejeong/Desktop/item
+uploadPath: file:///Users/yanghyejeong/Desktop/item
 
 logging:
   level:
