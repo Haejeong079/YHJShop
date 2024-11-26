@@ -38,8 +38,9 @@ spring:
         max-file-size: 20MB
         max-request-size: 100MB
 
-itemImgLocation: /Users/yanghyejeong/Desktop/item
-uploadPath: file:///Users/yanghyejeong/Desktop/item
+itemImgLocation: /Users/yanghyejeong/Documents/shop/item/ #서버 내부 사용 경로 - 파일 저장용
+uploadPath: file:///Users/yanghyejeong/Documents/shop/ # 클라이언트가 접근하는 경로 - 파일 접근용
+
 
 logging:
   level:

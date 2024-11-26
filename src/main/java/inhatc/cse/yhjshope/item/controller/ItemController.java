@@ -3,15 +3,27 @@ package inhatc.cse.yhjshope.item.controller;
 import inhatc.cse.yhjshope.item.dto.ItemDataDto;
 import inhatc.cse.yhjshope.item.dto.ItemDto;
 import inhatc.cse.yhjshope.item.dto.ItemFormDto;
+import inhatc.cse.yhjshope.item.services.ItemService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class ItemController {
+
+    private final ItemService itemService;
+
 
     @GetMapping("/admin/item/add")
     public String itemadd(Model model){
@@ -20,6 +32,26 @@ public class ItemController {
 
         return "item/add";
     }
+
+    @PostMapping("/admin/item/add")
+    public String itemAdd(@Valid ItemFormDto itemFormDto, BindingResult bindingResult, Model model, @RequestParam("itemImgFile") List<MultipartFile> itemImgList) {
+        if(bindingResult.hasErrors()){
+            return "item/add";
+        }
+        if(itemImgList.get(0).isEmpty() && itemFormDto.getId() == null){
+            model.addAttribute("errorMessage", "상품 이미지를 필수로 등록해주세요.");
+            return "item/add";
+        }
+
+        try {
+            itemService.saveItem(itemFormDto, itemImgList);
+        } catch (IOException e) {
+            model.addAttribute("errorMessage", "상품 등록에 실패하였습니다.");
+            return "item/add";
+        }
+        return "redirect:/admin/items";
+    }
+
 
     @GetMapping("/admin/items")
     public String itemList(){

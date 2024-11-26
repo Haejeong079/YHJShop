@@ -20,7 +20,7 @@ public class ItemImgService {
 
     private final FileService fileService;
 
-    @Value("${uploadPath}")
+    @Value("${itemImgLocation}")
     private String itemImgLocation;
 
     public void saveItemImg(ItemImg itemImg, MultipartFile itemImgFile) throws IOException {
